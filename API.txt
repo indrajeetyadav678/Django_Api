@@ -1,0 +1,34 @@
+Note :- DRF for API documentation.
+
+API Endpoint :-
+
+path('stu_list/', stu_list, name='stu_list')
+path('stu_list/<int:pk>', stu_list, name='stu_list')
+
+Note:- what is the postman?
+
+there are two type of Api will be work
+1. all object returning  ----> "GET and POST"
+2. single object returning  ----> GET, PUT, 
+App/views.py
+def stu_list(request, pk):
+    if request.method=='GET':
+          ----
+          ----
+          ----
+    elif request.method=='PUT':
+       ------
+       ----
+       ----
+    elif request.method=='PATCH':
+       ------
+       ----
+       ----
+    elif request.method=='DELETE':
+       ------
+       ----
+       ----
+
+
+
+Django REST Framework
