@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+
+        #Data_table,
+        #Datatab {
+            border: 2px solid black;
+        }
+
+        #Data_table td {
+            border: 1px solid black;
+            width: 300px;
+            height: 30px;
+            text-align: center;
+            background-color: rgb(160, 237, 237);
+        }
+
+        #heading_row th {
+            border: 1px solid black;
+            width: 300px;
+            height: 35px;
+            text-align: center;
+            background-color: rgb(220, 216, 216);
+            color: rgb(13, 13, 13);
+            font-weight: bold;
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="Datatab">
+        <tr id="heading_row">
+            <th>Name</th>
+            <th>UserID</th>
+            <th>Number</th>
+            <th>Password</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+    </table>
+    <table id="Data_table"></table>
+    <script>
+        async function loaddata() {
+            student_data = await fetch('http://127.0.0.1:8000/stulist/');
+            student_response = await student_data.json();
+            let stud_data_table = document.getElementById('Data_table');
+            stud_data_table.innerHTML = student_response.map(key => `
+    <tr id="table_row">
+        <td>${key.Name}</td>
+        <td>${key.Userid}</td>
+        <td>${key.Number}</td>
+        <td>${key.Password}</td>
+        <td><button onclick="deletdata(${key.id})">Delete</button></td>
+        <td><button onclick="updatedata(${key.id})">Update</button></td>
+    </tr>
+   `).join(" ");
+        } loaddata();
+        //   deleting data
+
+    // function deletdata(d_id){
+    //     stud_id=d_id;
+    //     fetch(`http://127.0.0.1:8000/stu_list/${stud_id}`,{
+    //        method:"DELETE"
+    //     }).then(Window.confirm("are you sure to delete it"))
+    // }
+
+    </script>
+</body>
+
+</html>

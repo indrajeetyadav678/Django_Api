@@ -22,5 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('api-auth/', include('rest_framework.urls')),
     path('stulist/', stulist, name='stulist'),
-    # path('stu_list/<int:pk>',stu_detail, name='stu_detail')
+    path('display/', display, name='display'),
+    path('', loginform, name='loginvalue'),
+    path('login/', Login),
+    path('stu_list/<int:pk>',stu_detail, name='stu_detail')
 ]
