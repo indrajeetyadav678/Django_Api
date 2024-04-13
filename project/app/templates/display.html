@@ -68,12 +68,12 @@
         } loaddata();
         //   deleting data
 
-    // function deletdata(d_id){
-    //     stud_id=d_id;
-    //     fetch(`http://127.0.0.1:8000/stu_list/${stud_id}`,{
-    //        method:"DELETE"
-    //     }).then(Window.confirm("are you sure to delete it"))
-    // }
+    function deletdata(d_id){
+        stud_id=d_id;
+        fetch(`http://127.0.0.1:8000/stu_list/id:${stud_id}`,{
+           method:"DELETE"
+        }).then(Window.confirm("are you sure to delete it"))
+    }
 
     </script>
 </body>
